@@ -1,18 +1,28 @@
-<!DOCTYPE html>
+<!DOCTYPE html
 <html lang="en">
 <head>
     <main class="login-box">
     <form>
         <title>Login</title>
-        <h1>Login</h1> 
-        <label for="username">Usuário</label>
+        <h1>Criar Conta</h1> 
+        <label for="username">Nome Completo</label>
         <input type="text" id="username" name="username" required>
                  
-        <label for="password">Senha</label>
-        <input type="password" id="password" name="password" required>
+        <label for="Email">Email</label>
+        <input type="email" id="email" name="email" required>
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <div style="display: flex; flex-direction: column;">
+                    <label for="password">Crie senha</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div style="display: flex; flex-direction: column;">
+                    <label for="confirm-password">Confirmar Senha</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+                </div>
+            </div>
 
-        <button type="submit">Entrar</button>
-    </form>
+            <button type="submit">Criar Conta</button>
+        <p>Já tem uma conta? <a href="login.html">Entrar</a></p>
 </main>
     <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,6 +32,7 @@
 </head>
 <body>
         </form>
+        
     </main>
 </body>
 </html>
