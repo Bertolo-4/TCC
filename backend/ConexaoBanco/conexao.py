@@ -5,5 +5,6 @@ def get_connection():
         host="localhost",
         database="simplecode",
         user="root",
-        password="1493"
+        password="xxxx"
     )
+
