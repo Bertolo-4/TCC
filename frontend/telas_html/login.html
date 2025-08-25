@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="/frontend/estilos/styleLogin.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <header class="cabecalho">
+      <div class="logo-cabecalho">
+          <img src="/frontend/logos_tcc/logo3_branca_semfundo.png" alt="Logo">  
+      </div>
+      <nav class="atalhos-topo">
+          <a href="/frontend/telas_html/criarConta.html">CRIAR CONTA</a>
+          <a href="#sobre">SOBRE NÓS</a>
+      </nav> 
+  </header>
+
+  <div class="logo-central">
+      <img src="/frontend/logos_tcc/logo2 branco sem fundo maior.png" alt="Logo">
+  </div>
+
+  <main class="login-box">
+    <div class="div">
+        <form id="form-login">
+            <h1>Entrar</h1> 
+            <label for="Email">Email</label>
+            <input type="text" id="email" name="email" required>
+            <label for="password">Senha</label>
+            <input type="password" id="password" name="Senha" required>
+            <button type="submit">Entrar</button>
+            <div style="display: flex; align-items: center; margin: 16px 0;">
+                <hr style="flex: 1; border: none; border-top: 1px solid #ccc;">
+                <span style="margin: 0 12px; color: #888; font-weight: bold;">OU</span>
+                <hr style="flex: 1; border: none; border-top: 1px solid #ccc;">
+            </div>
+        </form>
+        <a href="/frontend/telas_html/criarConta.html"><button type="button" class="btn-login">Criar conta</button></a>
+    </div>
+  </main>
+
+<script>
+    const formLogin = document.getElementById('form-login');
+
+    formLogin.addEventListener('submit', async (e) => {
+        // Previne o recarregamento padrão da página ao enviar o formulário
+        e.preventDefault();
+
+        // Pega os valores dos campos do formulário
+        const email = document.getElementById('email').value;
+        const senha = document.getElementById('password').value;
+
+        try {
+            // Envia a requisição para o backend
+            const response = await fetch('http://127.0.0.1:8000/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email,
+                    senha
+                })
+            });
+
+            const result = await response.json();
+
+            // Mostra a mensagem de resposta do servidor (seja de sucesso ou de erro)
+            alert(result.message || result.detail);
+
+            // Se a requisição foi bem-sucedida (status 2xx) e o backend confirmou o sucesso
+            if (response.ok && result.success) {
+                console.log("Login realizado com sucesso! ID do usuário:", result.id);
+                
+                // Redireciona o usuário para a página de dashboard
+                window.location.href = "/frontend/telas_html/dashboard.html";
+            }
+
+        } catch (error) {
+            console.error('Ocorreu um erro na requisição:', error);
+            alert('Não foi possível conectar ao servidor. Verifique o console para mais detalhes.');
+        }
+    });
+</script>
+</body>
+</html>

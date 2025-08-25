@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Conta</title>
+    <link rel="stylesheet" href="/frontend/estilos/styleCriarConta.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="cabecalho">
+        <div class="logo-cabecalho">
+            <img src="/frontend/logos_tcc/logo3_branca_semfundo.png" alt="Logo">   
+        </div>
+        <nav class="atalhos-topo">
+            <a href="/frontend/telas_html/login.html">Login</a>
+            <a href="#sobre">Sobre nós</a>
+        </nav> 
+    </header>
+
+    <div class="logo-central">
+        <img src="/frontend/logos_tcc/logo2 branco sem fundo maior.png" alt="Logo">
+    </div>
+
+    <main class="login-box">
+        <div>
+            <form id="form-criar-conta">
+                <h1>Criar Conta</h1> 
+                <label for="username">Nome Completo</label>
+                <input type="text" id="username" name="username" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <div style="display: flex; gap: 10px; align-items: center;">
+                    <div style="display: flex; flex-direction: column;">
+                        <label for="password">Crie senha</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <div style="display: flex; flex-direction: column;">
+                        <label for="confirm-password">Confirmar Senha</label>
+                        <input type="password" id="confirm-password" name="confirm-password" required>
+                    </div>
+                </div>
+                <button type="submit">Criar Conta</button>
+                <div style="display: flex; align-items: center; margin: 16px 0;">
+                    <hr style="flex: 1; border: none; border-top: 1px solid #ccc;">
+                    <span style="margin: 0 12px; color: #888; font-weight: bold;">OU</span>
+                    <hr style="flex: 1; border: none; border-top: 1px solid #ccc;">
+                </div>
+            </form>
+
+            <p id="form-message"></p>  <a href="/frontend/telas_html/dashboard.html">...</a>
+
+            <a href="/frontend/telas_html/login.html"><button type="button" class="btn-login">Login</button></a>
+        </div>
+    </main>
+
+<script>
+    const formCriarConta = document.getElementById('form-criar-conta');
+
+    formCriarConta.addEventListener('submit', async (e) => {
+        // Previne o recarregamento padrão da página ao enviar o formulário
+        e.preventDefault();
+
+        // Pega os valores dos campos do formulário
+        const nome = document.getElementById('username').value;
+        const email = document.getElementById('Email').value;
+        const senha = document.getElementById('password').value;
+        const confirm = document.getElementById('confirm-password').value;
+
+        // Validação no frontend para garantir que as senhas coincidem
+        if (senha !== confirm) {
+            alert("As senhas não coincidem!");
+            return; // Interrompe a execução se as senhas forem diferentes
+        }
+
+        try {
+            // Envia a requisição para o backend
+            const response = await fetch('http://1.2.3.4:8000/criar-usuario', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    nome,
+                    email,
+                    senha
+                })
+            });
+
+            const result = await response.json();
+
+            // Mostra a mensagem de resposta do servidor (seja de sucesso ou de erro)
+            alert(result.message || result.detail);
+
+            // Se a requisição foi bem-sucedida (status 2xx) e o backend confirmou o sucesso
+            if (response.ok && result.success) {
+                // Redireciona o usuário para a página de login
+                window.location.href = "/frontend/telas_html/login.html";
+            }
+            
+        } catch (error) {
+            console.error('Ocorreu um erro na requisição:', error);
+            alert('Não foi possível conectar ao servidor. Verifique o console para mais detalhes.');
+        }
+    });
+</script>
+
+</body>
+</html>

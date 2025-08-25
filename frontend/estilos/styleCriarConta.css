@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+     font-family: 'Poppins', Arial, sans-serif;
+    background-color: #F0F2F5; /* Um fundo neutro para a página */
+    display: flex; /* Essencial para o layout de duas colunas */
+    min-height: 100vh;
+}
+
+/* --- Painel Azul (Esquerda) --- */
+/* Criamos um painel azul virtual usando um pseudo-elemento no body */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 45%;
+    height: 100%;
+    background-color: #0D1623;
+    z-index: -1; /* Fica atrás de todo o conteúdo */
+}
+
+/* --- Cabeçalho e Navegação (Topo Esquerdo) --- */
+.logo-cabecalho {
+    position: fixed;
+    top: 40px;
+    left: 50px;
+}
+
+.logo-cabecalho img {
+    height: 50px; /* Ajuste o tamanho conforme sua logo */
+}
+
+.atalhos-topo {
+    position: fixed;
+    top: 43px;
+    right: calc(55% + 50px); /* <-- CORREÇÃO AQUI */
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.atalhos-topo a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding-bottom: 5px;
+}
+
+/* Estilo para o link ativo (Criar Conta) */
+.atalhos-topo a[href="#Login"] {
+    border-bottom: 2px solid #FFFFFF;
+}
+
+/* --- Logo Central (Esquerda) --- */
+.logo-central {
+    position: fixed;
+    left: 22.5%; /* <-- CORREÇÃO AQUI */
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.logo-central img {
+    width: 500px; /* Ajuste conforme o tamanho do seu logo */
+}
+
+/* --- Caixa de Login (Painel Direito) --- */
+main.login-box {
+    width: 55%; /* <-- CORREÇÃO AQUI */
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+/* --- Estilos do Formulário --- */
+.login-box form {
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-box h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #0D1623;
+}
+
+/* --- ESTILOS DE LABEL ATUALIZADOS --- */
+.login-box label {
+    display: block;
+    margin-bottom: 0.5rem;
+    border-radius: 32px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #555;
+}
+
+/* --- ESTILOS DE INPUT ATUALIZADOS --- */
+.login-box input[type="text"],
+.login-box input[type="email"],
+.login-box input[type="password"] {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 32px;
+    background-color: #ccc;
+    font-size: 1.1rem;
+    font-family: inherit;
+    color: #333;
+}
+
+.login-box input:focus {
+    outline: 2px solid #0D1623;
+    border-color: #0D1623;
+}
+
+.login-box div[style*="display: flex"] input {
+    margin-bottom: 0;
+}
+
+/* --- ESTILOS DE BOTÃO ATUALIZADOS --- */
+.login-box button {
+    background: #00192e;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 32px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background 0.2s;
+    width: 100%;
+    font-weight: 700;
+    font-family: inherit;
+}
+
+.login-box button:hover {
+    background: #888;
+}
+
+.login-box .btn-login {
+    background: #b0b0b0 !important;
+    color: #222 !important;
+    font-weight: 600;
+}
+
+.login-box .btn-login:hover {
+    background: #888 !important;
+    color: #fff !important;
+}
+
+/* --- Separador "OU" --- */
+.login-box div[style*="align-items: center"] {
+    margin: 25px 0 !important;
+}

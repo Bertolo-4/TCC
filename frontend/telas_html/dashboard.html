@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SimpleCode — </title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/frontend/estilos/styleDashboard.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar" aria-label="Barra lateral">
+      <div class="logo" aria-hidden="true">SC</div>
+      <nav aria-label="Navegação principal">
+        <button class="icon-btn" title="Perfil">
+          <img src="/icones/5.png" alt="Perfil">
+        </button>
+        <button class="icon-btn" title="Início">
+          <img src="/icones/6.png" alt="Início">
+        </button>
+        <button class="icon-btn" title="Pesquisar">
+          <img src="/icones/7.png" alt="Pesquisar">
+        </button>
+        <div style="flex:1"></div>
+        <button class="icon-btn" title="Configurações">
+          <img src="/icones/8.png" alt="Configurações">
+        </button>
+      </nav>
+    </aside>
+
+    <main class="content">
+     <header class="main-header">
+        <img src="/frontend/logos_tcc/logo1_semFundo.png" alt="Logo Simple Code" class="logo">
+
+        <div class="tabs" role="tablist" aria-label="Abas">
+          <button class="tab" role="tab">Tela Inicial</button>
+          <button class="tab active" role="tab" aria-selected="true">Exercícios</button>
+          <button class="tab" role="tab">Sobre nós</button>
+        </div>
+      </header>
+
+      <section class="cards" aria-label="Cartões de exercícios">
+        <article class="card" aria-labelledby="c1">
+          <div class="title" id="c1">EXERCÍCIO 1</div>
+          <div class="desc">Breve descrição do exercício e progresso atual.</div>
+          <div class="progress" aria-hidden="true"><div class="fill fill-orange" style="width:44%"></div></div>
+        </article>
+
+        <article class="card" aria-labelledby="c2">
+          <div class="title" id="c2">EXERCÍCIO 2</div>
+          <div class="desc">Breve descrição do exercício e progresso atual.</div>
+          <div class="progress" aria-hidden="true"><div class="fill fill-green" style="width:68%"></div></div>
+        </article>
+
+        <article class="card" aria-labelledby="c3">
+          <div class="title" id="c3">EXERCÍCIO 3</div>
+          <div class="desc">Breve descrição do exercício e progresso atual.</div>
+          <div class="progress" aria-hidden="true"><div class="fill fill-purple" style="width:28%"></div></div>
+        </article>
+      </section>
+
+      <section class="progress-list" aria-label="Seu progresso">
+        <div class="section-title">Seu progresso</div>
+        <div class="list" role="list">
+          <div class="list-item" role="listitem">
+            <div class="item-icon c-orange" aria-hidden="true">Q1</div>
+            <div class="item-main">
+              <div class="item-title">Exercício 1</div>
+              <div class="item-progress" aria-hidden="true"><div class="fill fill-orange" style="width:44%"></div></div>
+            </div>
+            <button class="menu-btn" aria-label="Mais opções">⋯</button>
+          </div>
+
+          <div class="list-item" role="listitem">
+            <div class="item-icon c-green" aria-hidden="true">Q2</div>
+            <div class="item-main">
+              <div class="item-title">Exercício 2</div>
+              <div class="item-progress" aria-hidden="true"><div class="fill fill-green" style="width:68%"></div></div>
+            </div>
+            <button class="menu-btn" aria-label="Mais opções">⋯</button>
+          </div>
+
+          <div class="list-item" role="listitem">
+            <div class="item-icon c-purple" aria-hidden="true">Q3</div>
+            <div class="item-main">
+              <div class="item-title">Exercício 3</div>
+              <div class="item-progress" aria-hidden="true"><div class="fill fill-purple" style="width:28%"></div></div>
+            </div>
+            <button class="menu-btn" aria-label="Mais opções">⋯</button>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+     
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
