@@ -48,8 +48,6 @@
                 </div>
             </form>
 
-            <p id="form-message"></p>  <a href="/frontend/telas_html/dashboard.html">...</a>
-
             <a href="/frontend/telas_html/login.html"><button type="button" class="btn-login">Login</button></a>
         </div>
     </main>
@@ -63,7 +61,7 @@
 
         // Pega os valores dos campos do formulário
         const nome = document.getElementById('username').value;
-        const email = document.getElementById('Email').value;
+        const email = document.getElementById('email').value;
         const senha = document.getElementById('password').value;
         const confirm = document.getElementById('confirm-password').value;
 
@@ -75,16 +73,12 @@
 
         try {
             // Envia a requisição para o backend
-            const response = await fetch('http://1.2.3.4:8000/criar-usuario', {
+             const response = await fetch('/criar-usuario', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({
-                    nome,
-                    email,
-                    senha
-                })
+                body: JSON.stringify({ nome: nome, email: email, senha: senha }), // Enviando os dados como JSON
             });
 
             const result = await response.json();
