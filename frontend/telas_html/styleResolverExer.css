@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+:root {
+    --dark-navy: #1C2833;      /* Cor principal do header/footer */
+    --medium-blue-gray: #4A5568; /* Cor da barra de abas */
+    --dark-panel: #3D4852;       /* Cor do painel de código */
+    --light-panel-bg: #F7FAFC; /* Cor de fundo dos painéis claros */
+    --light-text: #FFFFFF;
+    --dark-text: #2D3748;
+    --icon-inactive: #A0AEC0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--light-panel-bg); /* Fundo geral claro */
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    color: var(--dark-text);
+}
+
+/* Header */
+.header {
+    background-color: var(--dark-navy);
+    color: var(--light-text);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 2rem;
+}
+
+.logo {
+    font-size: 2.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo i {
+    font-size: 2rem;
+}
+
+.logo img {
+    height:80px;  /* <-- Altere este valor para o tamanho que desejar */
+    width: auto;   /* Mantém a proporção da imagem para não distorcer */
+    display: block; /* Ajuda a garantir um bom alinhamento */
+}
+
+.user-options {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.icon-wrapper {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.25rem;
+}
+
+/* Conteúdo Principal */
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Abas (Tabs) */
+.tabs {
+    display: flex;
+    background-color: var(--medium-blue-gray);
+}
+
+.tab-item {
+    color: var(--icon-inactive);
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+    width: 33.33%;
+    text-align: center;
+}
+
+
+/* Painéis (Panels) */
+.panels {
+    display: flex;
+    flex-grow: 1;
+}
+
+.panel {
+    width: 33.33%;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.panel-enunciado {
+    background-color: var(--light-panel-bg);
+}
+
+.panel-enunciado h2, .panel-enunciado h3 {
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.panel-enunciado p {
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* Painel do Código */
+.panel-codigo {
+    background-color: var(--dark-panel);
+    padding: 0; /* Padding zero para o conteúdo preencher tudo */
+    justify-content: flex-end; /* Alinha o botão para baixo */
+}
+
+.code-editor-area {
+    flex-grow: 1; /* Ocupa o espaço, empurrando o botão para baixo */
+}
+
+.run-button {
+    background-color: #000000;
+    color: var(--light-text);
+    border: none;
+    padding: 0.6rem 2rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    align-self: flex-start; /* Alinha à esquerda do painel */
+    margin: 1rem;
+}
+
+/* Painel da Saída */
+.panel-saida {
+    background-color: var(--light-panel-bg);
+}
+
+.panel-saida h3 {
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.output-area {
+    flex-grow: 1;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--dark-navy);
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 2rem;
+}
+
+.nav-button {
+    background-color: var(--medium-blue-gray);
+    color: var(--light-text);
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.nav-button:hover {
+    background-color: #5A6678;
+}
