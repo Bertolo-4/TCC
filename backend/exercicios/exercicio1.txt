@@ -1,0 +1,8 @@
+Uma nova doenca se alastrou pelo mundo o Covid19  
+Sabese que um dos sintomas do virus e a febre Porem  
+nem todos os paises usam a mesma escala termometrica A  
+OMS tem uma tarefa para voce desenvolver um algoritmo  
+que converta a temperatura de graus Celsius em graus  
+Fahrenheit A formula para conversao e F  (9 x C+160)/5  
+onde F e a temperatura em Fahrenheit e C e a temperatura  
+em graus Celsius
