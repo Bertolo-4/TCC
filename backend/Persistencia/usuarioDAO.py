@@ -2,9 +2,6 @@
 
 from ConexaoBanco.conexao import get_connection
 from Modelos.usuario import usuario
-
-# Nota: Não precisamos mais importar o psycopg2 aqui
-# Se o seu conector for o mysql-connector-python, você pode importá-lo para tratar erros
 import mysql.connector
 
 def inserir_usuario(novo_usuario):
